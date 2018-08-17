@@ -1,0 +1,17 @@
+{
+    "name": "eduluz1976/user-management",
+    "description": "Simple user manaement and authentication library",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "7.3"
+    },
+    "license": "Apache 2.0",
+    "authors": [
+        {
+            "name": "Eduardo Luz",
+            "email": "eduluz1976@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
