@@ -12,6 +12,13 @@
             "email": "eduluz1976@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "eduluz1976\\user_management\\": "src/"
+        }
+    },
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+      "harpya/ufw-base":"^0.1.10"
+    }
 }
