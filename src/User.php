@@ -9,6 +9,11 @@ namespace eduluz1976\user_management;
 class User
 {
 
+    /**
+     * @var \PDO
+     */
+    protected $pdo;
+
     protected $username;
     protected $hash;
     protected $email;
@@ -84,6 +89,35 @@ class User
     {
         $this->status = $status;
         return $this;
+    }
+
+    /**
+     * @return \PDO
+     */
+    public function getPdo(): \PDO
+    {
+        return $this->pdo;
+    }
+
+    /**
+     * @param \PDO $pdo
+     * @return User
+     */
+    public function setPdo(\PDO $pdo): User
+    {
+        $this->pdo = $pdo;
+        return $this;
+    }
+
+
+
+
+
+    public function __construct(\PDO $pdo=null)
+    {
+        if ($pdo) {
+            $this->setPdo($pdo);
+        }
     }
 
 
