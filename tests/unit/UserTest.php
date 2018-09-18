@@ -1,5 +1,6 @@
 <?php
 use eduluz1976\user_management\User;
+use \eduluz1976\user_management\Restriction;
 
 class UserTest extends PHPUnit\Framework\TestCase
 {
@@ -9,9 +10,14 @@ class UserTest extends PHPUnit\Framework\TestCase
     /**
      * @return User
      */
-    protected function getUser() : User {
+    protected function getUser()  {
         if (!$this->user) {
-            $this->user = new User();
+            $this->user = new class(){
+                use User;
+                use Restriction;
+                use \eduluz1976\user_management\PDOModel;
+                use \eduluz1976\user_management\Hashable;
+            };
         }
         return $this->user;
     }
@@ -49,8 +55,8 @@ class UserTest extends PHPUnit\Framework\TestCase
 
     public function testGetStatus()
     {
-        $this->getUser()->setStatus(5);
-        $this->assertEquals(5, $this->getUser()->getStatus());
+        $this->getUser()->setRestriction(5);
+        $this->assertEquals(5, $this->getUser()->getRestriction());
 
     }
 }

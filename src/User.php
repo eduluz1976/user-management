@@ -6,18 +6,14 @@ namespace eduluz1976\user_management;
  * Class User
  * @package eduluz1976\user_management
  */
-class User
+trait User
 {
 
-    /**
-     * @var \PDO
-     */
-    protected $pdo;
 
     protected $username;
-    protected $hash;
+
     protected $email;
-    protected $status;
+
 
     /**
      * @return string
@@ -29,7 +25,7 @@ class User
 
     /**
      * @param mixed $username
-     * @return User
+     * @return $this
      */
     public function setUsername($username)
     {
@@ -37,23 +33,6 @@ class User
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getHash()
-    {
-        return $this->hash;
-    }
-
-    /**
-     * @param string $hash
-     * @return User
-     */
-    public function setHash($hash)
-    {
-        $this->hash = $hash;
-        return $this;
-    }
 
     /**
      * @return string
@@ -65,7 +44,7 @@ class User
 
     /**
      * @param string $email
-     * @return User
+     * @return $this
      */
     public function setEmail($email)
     {
@@ -73,52 +52,6 @@ class User
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * @param string $status
-     * @return User
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-        return $this;
-    }
-
-    /**
-     * @return \PDO
-     */
-    public function getPdo(): \PDO
-    {
-        return $this->pdo;
-    }
-
-    /**
-     * @param \PDO $pdo
-     * @return User
-     */
-    public function setPdo(\PDO $pdo): User
-    {
-        $this->pdo = $pdo;
-        return $this;
-    }
-
-
-
-
-
-    public function __construct(\PDO $pdo=null)
-    {
-        if ($pdo) {
-            $this->setPdo($pdo);
-        }
-    }
 
 
 }
